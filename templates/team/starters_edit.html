@@ -1,0 +1,62 @@
+{% extends "team/base.html" %}      
+
+{% block title %}Team {{ team.owner.first_name }} - Edit Starters - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>Edit {{ team.owner.first_name }}'s Starters - {{ selected_season }}, Week {{ selected_week }}</h2>
+
+	<div class="tablesm">      
+	week:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/team/{{ team.id }}/starters/season/{{ selected_season }}/week/{{ week }}/edit">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>          
+    
+    &nbsp;
+
+<form method="post" action=".">      
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		POSITION
+		</td>
+		<td width="40%">
+		CURRENT
+		</td>
+		<td width="50%">
+		REPLACEMENT
+		</td>
+		</tr>
+
+{% for starter_info in starter_infos %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td  class="sortcell" >{{ starter_info.position }}</td>    
+<td>{{ starter_info.player_name }}</td>
+<td>
+<select name="starter.{{ starter_info.id }}" size="1">  
+  <option value="">-- select a player --</option>  
+  {% for eligible_info in starter_info.eligible %}           
+    {% ifequal starter_info.player eligible_info.roster.player %}
+    <option value="{{ eligible_info.id }}" selected>{{ eligible_info.name }}</option>  
+    {% else %}
+    <option value="{{ eligible_info.id }}">{{ eligible_info.name }}</option>  
+    {% endifequal %}
+  {% endfor %}
+</select>
+</td>
+</tr>
+{% endfor %}
+
+    </table>
+
+<input type="submit" value="Submit"/>        
+</form>
+
+{% endblock %}
+ 

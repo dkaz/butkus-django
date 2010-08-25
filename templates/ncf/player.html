@@ -1,0 +1,9 @@
+{% extends "ncf/base.html" %} 
+
+{% block content %}                       
+<h2>#{{ roster.number }} {{ player.name }} | {{ player.position }} | {{ player.team.name }}</h2>       
+                                                                                                                    
+<div><span class="bi">Class</span>: {{ player.eligibility }}</div>
+
+{% endblock %}
+                             

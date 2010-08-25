@@ -1,0 +1,45 @@
+{% extends "league/base.html" %} 
+
+{% block content %}                       
+<h2>{{ selected_season }} Schedule</h2>
+	<div class="tablesm">      
+	<b>change seasons:</b>            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/league/schedule/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>          
+    
+    <br />
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		WEEK
+		</td>
+		<td width="35%">
+		START DATE
+		</td>
+		<td width="35%">
+		END DATE
+		</td>
+		<td width="20%">
+		NCAA SCHEDULE
+		</td>
+{% for schedule in schedules %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td>{{ schedule.week }}</td>
+<td>{{ schedule.first_date|date:"D, M d" }}</td>
+<td>{{ schedule.last_date|date:"D, M d" }}&nbsp;</td>
+<td><!--<a href="">&lt;View&gt;</a>--></td>
+</tr>
+{% endfor %}
+
+    </table>
+
+{% endblock %}
+                             

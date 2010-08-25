@@ -1,0 +1,60 @@
+{% extends "league/base.html" %} 
+
+{% block title %}{{ selected_season }} Standings{% endblock %}
+
+{% block content %}                       
+<h2>{{ selected_season }} Standings</h2>
+	<div class="tablesm"> 
+
+   {% if user.is_superuser %}commish tools: 
+   <b><a href="/league/standings/season/{{ selected_season }}/edit">edit standings</a></b><br /><br />
+   {% endif %}
+
+	<b>change seasons:</b>            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/league/standings/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>          
+    
+    <br />
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		TEAM
+		</td>      
+		{% for week_number in week_numbers %}
+		<td width="5%">
+		<a href="/league/standings/season/{{ selected_season }}/sort/{{ week_number }}">{{ week_number }}</a>
+		</td>
+		{% endfor %} 
+		<td width="10%">
+		<a href="/league/standings/season/{{ selected_season }}/sort/overall">OVERALL</a>
+		</td>      
+		</tr>
+		
+{% for standing in standings %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td class="sortcell" ><b>{{ forloop.counter }}. <a href="/team/{{ standing.team.id }}">{{ standing.team }}</a></b></td>   
+{% ifequal number_of_weeks 12 %}  
+  {% for week in standing.weeks12 %}  
+  <td class="sortcell" >{% ifnotequal week None %}{{ week }}{% endifnotequal %}</td>
+  {% endfor %}
+{% else %}   
+  {% for week in standing.weeks %}  
+  <td class="sortcell" >{% ifnotequal week None %}{{ week }}{% endifnotequal %}</td>
+  {% endfor %}
+{% endifequal %}
+
+<td class="sortcell" ><b>{{ standing.overall }}</b></td>
+</tr>
+{% endfor %}
+
+    </table>
+{% endblock %}
+                             

@@ -1,0 +1,16 @@
+{% extends "ncf/base.html" %} 
+
+{% block title %}{{ team.name }} {{ team.nickname }} Home{% endblock %}
+
+{% block content %}                       
+<h2>{{ team.name }} {{ team.nickname }} Home</h2>
+
+<p>
+Main Sections:
+<ul>             
+<li><a href="/ncf/team/{{ team.id }}/roster">Roster</a></li>
+<li><a href="/ncf/team/{{ team.id }}/schedule">Schedule</a></li>
+</ul>  
+
+{% endblock %}
+                             

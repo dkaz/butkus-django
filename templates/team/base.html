@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block lower_menu %}
+<a href="/team/{{ team.id }}/index">Index</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/team/{{ team.id }}/roster">Roster</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/team/{{ team.id }}/starters">Starters</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/team/{{ team.id }}/boxscores">Boxscores</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/team/{{ team.id }}/pickups">Pickups</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/team/{{ team.id }}/draft">Draft</a>
+{% endblock %}   
+
+{% block sidebar %}
+{% include "team/change_team.html" %}
+{% endblock %}           
+                         

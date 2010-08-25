@@ -1,0 +1,24 @@
+{% extends "league/base.html" %}     
+
+{% block content %}                       
+<h2>Butkus League Owners</h2>    
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="580" class="tablehead">
+		<tr class="colhead"><td width="30%">
+		OWNER
+		</td>
+		<td width="70%">
+		SINCE
+		</tr>
+{% for team in teams %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td>{{ team.owner_private_name }}&nbsp;</td>
+<td>{{ team.season_joined }}&nbsp;</td>
+</tr>
+{% endfor %}
+    </table>
+
+{% endblock %}   
+
+{% block sidebar %}
+{% endblock %}

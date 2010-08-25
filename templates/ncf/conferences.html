@@ -1,0 +1,33 @@
+{% extends "ncf/base.html" %} 
+
+{% block content %}            
+
+<h2>Conference Index</h2>       
+				<table class="tablehead" cellpadding="3" cellspacing="1">
+				<tr class="colhead">
+				<td width="50%"><B>DIVISION 1-A</B></td>
+				<td width="50%"><B>DIVISION 1-AA</B></td>
+				</tr>
+    {% for conference_pair in conference_pairs %}     
+				<tr class="{% cycle oddrow,evenrow %}">
+				<td>
+				{% if conference_pair.0 %}
+				<a href="/ncf/conference/{{ conference_pair.0.id }}" class="bi">{{ conference_pair.0 }}</a> &gt;&gt;
+				<a href="/ncf/conference/{{ conference_pair.0.id }}/scores" class="ni">Scoreboard</a> 
+				<!-- | <a href="/ncf/conference/{{ conference_pair.0.id }}/standings" class="ni">Standings</a> -->
+				<!-- | <a href="/ncf/conference/{{ conference_pair.0.id }}/stats" class="ni">Stats</a> -->
+				{% endif %}
+				</td>
+				<td> 
+				{% if conference_pair.1 %}
+				<a href="/ncf/conference/{{ conference_pair.1.id }}" class="bi">{{ conference_pair.1 }}</a> &gt;&gt;
+				<a href="/ncf/conference/{{ conference_pair.1.id }}/scores" class="ni">Scoreboard</a> 
+				<!-- | <a href="/ncf/conference/{{ conference_pair.1.id }}/standings" class="ni">Standings</a>  -->
+				<!-- | <a href="/ncf/conference/{{ conference_pair.1.id }}/stats" class="ni">Stats</a> -->
+				{% endif %}
+				</td>				
+				</tr>
+    {% endfor %}
+				</table>
+{% endblock %}
+                             

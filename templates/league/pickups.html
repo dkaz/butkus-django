@@ -1,0 +1,65 @@
+{% extends "league/base.html" %} 
+
+{% block content %}                       
+<h2>{{ selected_season }} Pickups</h2>
+	<div class="tablesm">      
+	<b>change seasons:</b>            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/league/pickups/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>          
+    
+    <br />
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="6%">
+		WEEK
+		</td>
+		<td width="6%">
+		PICK #
+		</td>
+		<td width="6%">
+		TEAM
+		</td>
+		<td width="18%">
+		PICK-UP
+		</td>
+		<td width="5%">
+		POS
+		</td>
+		<td width="18%">
+		SCHOOL
+		</td>
+		<td width="18%">
+		DROP
+		</td>
+		<td width="5%">
+		POS
+		</td>
+		<td width="18%">
+		SCHOOL
+		</td>
+{% for pickup in pickups %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td>{{ pickup.week }}</td>
+<td>{{ pickup.pick }}</td>
+<td><a href=/team/{{ pickup.team.id}}/pickups>{{ pickup.team.owner.first_name }}</a></td>
+<td><a href=/ncf/player/{{ pickup.player_picked.id }}>{{ pickup.player_picked.name }}</a></td>
+<td>{{ pickup.player_picked.position }}&nbsp;</td>
+<td><a href=/ncf/team/{{ pickup.player_picked.team.id }}>{{ pickup.player_picked.team.name }}</a>&nbsp;</td>
+<td><a href=/ncf/player/{{ pickup.player_dropped.id }}>{{ pickup.player_dropped.name }}</a></td>
+<td>{{ pickup.player_dropped.position }}&nbsp;</td>
+<td><a href=/ncf/team/{{ pickup.player_dropped.team.id }}>{{ pickup.player_dropped.team.name }}</a>&nbsp;</td>
+</tr>
+{% endfor %}
+
+    </table>
+
+{% endblock %}
+                             

@@ -1,0 +1,70 @@
+{% extends "team/base.html" %}      
+
+{% block title %}{{ team_season.team_name }} Roster - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>{{ team_season.team_name }} Roster - {{ selected_season }}, Week {{ selected_week }}</h2>
+	<div class="tablesm">      
+	seasons:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/team/{{ team.id }}/roster/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+	<div class="tablesm">      
+	weeks:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/team/{{ team.id }}/roster/season/{{ selected_season }}/week/{{ week }}">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>             
+    <br />
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		<a href="/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/position">POS</a>
+		</td>
+		<td width="30%">
+		<a href="/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/name">NAME</a>
+		</td>
+		<td width="25%">
+		<a href="/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/school">SCHOOL</a>&nbsp;
+		</td>
+		<td width="10%">
+		<a href="/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/eligibility">CLASS</a>&nbsp;
+		</td>
+		<td width="15%">
+		STATUS&nbsp;
+		</td>
+		</tr>
+{% for roster in rosters %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td  class="sortcell" >{{ roster.player.pos }}</td>
+<td><a href=/ncf/player/{{ roster.player.id }}>{{ roster.name }}</a></td>
+<td><a href=/ncf/team/{{ roster.player.team.id  }}>{{ roster.player.team.name }}</a>&nbsp;</td>
+<td>{{ roster.player.eligibility }}&nbsp;</td>     
+<td>             
+{% if user.is_superuser %}
+  {% if roster.active %}
+	  {% ifequal selected_week last_week %}         
+<a href="/team/{{ team.id }}/roster/{{ roster.id }}/cut/season/{{ selected_season }}/week/{{ selected_week }}">Cut</a>
+	  {% else %}
+<a href="/team/{{ team.id }}/roster/{{ roster.id }}/move/season/{{ selected_season }}/week/{{ selected_week }}">Replace</a>
+	  {% endifequal %}
+  {% endif %}
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+
+    </table>
+{% endblock %}

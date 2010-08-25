@@ -1,0 +1,44 @@
+{% extends "team/base.html" %}      
+
+{% block content %}                       
+<h2>{{ team_season.team_name }} Draft</h2>
+	<div class="tablesm">      
+	<b>change seasons:</b>            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  {{ season }}
+	  {% else %}
+	  <a href="/team/{{ team.id }}/draft/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>          
+    
+    <br />
+
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="5%">
+		<a href="/team/{{ team.id }}/draft/season/{{ selected_season }}/sort/pick">ROUND</a>
+		</td>
+		<td width="5%">
+		<a href="/team/{{ team.id }}/draft/season/{{ selected_season }}/sort/pick">PICK</a>
+		</td><td width="25%">
+		<a href="/team/{{ team.id }}/draft/season/{{ selected_season }}/sort/player">PLAYER</a>&nbsp;
+		</td><td width="10%">
+		<a href="/team/{{ team.id }}/draft/season/{{ selected_season }}/sort/position">POSITION</a>&nbsp;
+		</td><td width="30%">
+		<a href="/team/{{ team.id }}/draft/season/{{ selected_season }}/sort/school">SCHOOL</a>&nbsp;
+		</tr>
+{% for draft in drafts %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td  class="sortcell" >{{ draft.round }}</td>
+<td  class="sortcell" >{{ draft.pick }}</td>
+<td><a href=/ncf/player/{{ draft.player.id }}>{{ draft.player.name }}</a></td>
+<td>{{ draft.player.position }}&nbsp;</td>
+<td><a href=/ncf/team/{{ draft.player.team.id }}>{{ draft.player.team.long_name }}</a>&nbsp;</td>
+</tr>
+{% endfor %}
+
+    </table>
+{% endblock %}

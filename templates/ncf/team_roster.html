@@ -1,0 +1,41 @@
+{% extends "ncf/base.html" %} 
+
+{% block content %}                       
+<h2>{{ team.name }} Roster</h2>
+	<div class="tablesm">      
+	seasons:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/ncf/team/{{ team.id }}/roster/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+
+<div id="leftside" style="width:580px; margin-top:5px; float:left;">
+    <table cellpadding="3" cellspacing="1" boder="1" width="580" class="tablehead">
+		<tr class="colhead"><td width="7%">
+		<a href="/ncf/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/number">NUM</a>
+		</td>
+		<td width="180">
+		<a href="/ncf/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/name">NAME</a>
+		</td><td width="42">
+		<a href="/ncf/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/position">POS</a>&nbsp;
+		</td><td width="54">
+		<a href="/ncf/team/{{ team.id }}/roster/season/{{ selected_season }}/sort/eligibility">CLASS</a>&nbsp;
+		</tr>
+{% for roster in rosters %}		
+<tr class="{% cycle oddrow,evenrow %}" valign=top>
+<td  class="sortcell" >{{ roster.number }}</td>
+<td><a href=/ncf/player/{{ roster.player.id }}>{{ roster.first_name }} {{ roster.last_name }}</a></td>
+<td>{{ roster.position }}&nbsp;</td>
+<td>{{ roster.eligibility }}&nbsp;</td>
+</tr>
+{% endfor %}
+
+    </table>
+</div>
+{% endblock %}
+                             

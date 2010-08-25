@@ -1,0 +1,60 @@
+{% extends "league/base.html" %}      
+
+{% block title %}Rosters - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>Rosters - {{ selected_season }}, Week {{ selected_week }}</h2>
+	<div class="tablesm">      
+	seasons:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/league/rosters/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+	<div class="tablesm">      
+	weeks:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/league/rosters/season/{{ selected_season }}/week/{{ week }}">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>             
+    <br />        
+    
+{% for roster_entry in roster_entries %}		
+    <h2>{{ roster_entry.team.owner.first_name }}</h2>
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		POS
+		</td>
+		<td width="40%">
+		NAME
+		</td>
+		<td width="45%">
+		SCHOOLE&nbsp;
+		</td>
+		<td width="10%">
+		CLASS&nbsp;
+		</td>
+		</tr>
+	{% for roster in roster_entry.rosters %}		
+        <tr class="{% cycle oddrow,evenrow %}" valign=top>
+        <td  class="sortcell" >{{ roster.player.position }}</td>
+        <td><a href=/ncf/player/{{ roster.player.id }}>{{ roster.player.name }}</a></td>
+        <td><a href=/ncf/team/{{ roster.player.team.id }}>{{ roster.player.team.name }}</a>&nbsp;</td>
+        <td>{{ roster.player.eligibility }}&nbsp;</td>     
+        </tr>
+    {% endfor %}
+    </table>
+ {% endfor %}
+
+
+{% endblock %}

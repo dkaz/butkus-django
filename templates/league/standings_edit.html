@@ -1,0 +1,37 @@
+{% extends "league/base.html" %}      
+
+{% block title %}{{ selected_season }} EDIT Standings{% endblock %}
+
+{% block content %}      
+
+<form action="." method="post">
+                 
+<h2>Edit {{ selected_season }} Standings</h2>
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="10%">
+		TEAM
+		</td>      
+		{% for week_number in week_numbers %}
+		<td width="4%">
+		<a href="/league/standings/season/{{ selected_season }}/sort/{{ week_number }}">{{ week_number }}</a>
+		</td>
+		{% endfor %} 
+		</tr>
+		
+{% for standing in standings %}		
+  <tr class="{% cycle oddrow,evenrow %}" valign=top>
+  <td class="sortcell" ><b>{{ standing.team }}</b></td>   
+  {% for week in standing.weeks %}  
+    <td class="sortcell" ><input type="text" size="3" name="{{ standing.id }}" value="{% ifnotequal week None %}{{ week }}{% endifnotequal %}"/></td>
+  {% endfor %}
+{% endfor %}
+</table>    
+        
+<br /><br />
+<input type="submit" value="update" name="update"/>
+
+</form>
+
+{% endblock %}
+                             

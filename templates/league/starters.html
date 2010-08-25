@@ -1,0 +1,70 @@
+{% extends "league/base.html" %}      
+
+{% block title %}Starters - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>Starters - {{ selected_season }}, Week {{ selected_week }}</h2>
+	<div class="tablesm">      
+	seasons:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/league/starters/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+	<div class="tablesm">      
+	weeks:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/league/starters/season/{{ selected_season }}/week/{{ week }}">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>             
+    <br />        
+    
+{% for starter_entry in starter_entries %}		
+    <h2>{{ starter_entry.team.owner.first_name }}</h2>
+    <table cellpadding="3" cellspacing="1" boder="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="20%">
+		POS
+		</td>
+		<td width="40%">
+		NAME/SCHOOL
+		</td>
+		<td width="40%">
+		GAME
+		</td>
+		</tr>
+	{% for starter in starter_entry.starters %}		
+        <tr class="{% cycle oddrow,evenrow %}" valign=top>
+        <td  class="sortcell" >{{ starter.position }}</td>
+        <td>
+        {% if starter.player %}
+        <a href=/ncf/player/{{ starter.player.id }}>{{ starter.player.name }}</a> ({{ starter.player.position }}, <a href=/ncf/team/{{ starter.player.team.id }}>{{ starter.player.team.name }}</a>)  
+		{% else %}     
+		(vacant)
+		{% endif %}
+		</td>
+        <td>      
+        {% if starter.player %}
+          {% if starter.game %}  
+	     	{% if starter.game.away %}@ {% endif %}<a href=/ncf/team/{{ starter.game.opponent.id  }}>{{ starter.game.opponent.name }}</a>
+		  {% else %}
+		    OFF
+		  {% endif %}
+		{% endif %}
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+ {% endfor %}
+
+
+{% endblock %}

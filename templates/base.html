@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <title>Butkus League - {% block title %}NCAA Fantasy Football{% endblock %}</title>
+  	<style type="text/css" media="all">
+      @import "/static/base.css";
+	</style>
+    <style type="text/css">
+      abbr { border: 0; }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="nav">
+    <div id="upper">
+      <div class="left" style="margin: 5px 5px 5px 15px; float: left;">
+        {% block upper_menu %}
+        <a href="/league">Butkus League</a>
+        <img src="/static/pipe_yellow.gif"/>
+        <a href="/team">My Team</a>
+        <img src="/static/pipe_yellow.gif"/>
+        <a href="/ncf">NCAA Football</a>
+        {% endblock %}
+      </div>
+      
+      <div class="right" style="margin: 5px; float: right;">   
+      {% if user.is_anonymous %}     
+        <a href="/accounts/login/?next={{ request.path }}">Log In.</a>
+      {% else %}
+        Hi <b>{{ user }}</b>! <a href="/accounts/logout/?next={{ request.path }}">Log Out.</a>      
+      {% endif %}
+      </div>
+    </div> <!-- end upper -->
+
+    <div id="banner">  
+      <div id="logo">Butkus Football League <font size="-2">(NCAA Football Fantasy)</font></div>       
+      <div id="banner-right"><img src="/static/butkus.jpg"/></div>
+    </div>
+    <div id="lower">   
+      <div class="left" style="margin: 5px 5px 5px 15px; float: left;">    
+        {% block lower_menu %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>  <!-- end banner -->
+
+  <div id="main">
+    <div id="sidebar">
+      {% block sidebar %}
+      {% endblock %}
+    </div>  <!-- end sidebar -->
+    
+    <div id="content">
+      {% if anon_message %}
+        <ul class="messagelist"><li>{{ anon_message|escape }}</li></ul>
+      {% endif %}
+      {% if messages %}
+        <ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
+      {% endif %}
+
+      {% block content %}
+      {% endblock %}
+    </div>  <!-- end content -->
+    
+    <div style="clear: both;">&nbsp;</div>
+  </div>  <!-- end main -->
+
+</div> <!-- end wrapper -->
+
+<div id="footer">
+  <div id="footer_nav">
+    <a href="/help/contact">Contact Us</a>
+  </div>
+
+  <div id="footer_legal">
+    Copyright 2006 <i>STRAY neuron</i>. All rights reserved.
+  </div>
+</div>  <!-- end footer --> 
+
+</body>
+</html>

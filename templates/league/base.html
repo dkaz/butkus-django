@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+
+{% block lower_menu %}
+<a href="/league/index">Index</a> 
+<img src="/static/pipe_black.gif"/>
+<a href="/league/standings">Standings</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/schedule">Schedule</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/rosters">Rosters</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/starters">Starters</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/draft">Draft</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/pickups">Pickups</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/owners">Owners</a>
+<img src="/static/pipe_black.gif"/>
+<a href="/league/trophy">Trophy</a>
+{% endblock %}              
+                        
+{% block sidebar %}   
+<!--
+  {% if not user.is_anonymous %}     
+      <div class="block">   
+        <div class="title">
+          League News
+        </div>
+        {% for newsitem in news %}
+        <div class="entry">
+          <div class="date">{{ newsitem.created_date }}</div>
+{{ newsitem.headline }} <a href="/league/news/slug">[More...]</a>
+        </div>
+        {% endfor %}
+        <div class="more">
+          <a href="/league/news">All site news...</a>
+        </div>       
+      </div>
+  {% endif %}  
+-->
+{% endblock %}                         

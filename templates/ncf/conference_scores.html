@@ -1,0 +1,38 @@
+{% extends "ncf/conference_base.html" %} 
+
+{% block title %}{{ conference.name }} Scores - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>{{ conference.name }} Schedules/Scores</h2>
+
+	<div class="tablesm">      
+	season:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/ncf/conference/{{ conference.id }}/scores/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+	<div class="tablesm">      
+	week:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/ncf/conference/{{ conference.id }}/scores/season/{{ selected_season }}/week/{{ week }}">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>          
+    
+    <br/><br/>
+
+{% for game in games %}
+{{ game.date|date:"F j" }} {{ game.team.name }} - {{ game.opponent.name }}<br />
+{% endfor %}
+
+{% endblock %}
+                             

@@ -1,0 +1,90 @@
+{% extends "team/base.html" %}      
+
+{% block title %}{{ team_season.team_name }} Boxscores - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>{{ team_season.team_name }} Boxscores - {{ selected_season }}, Week {{ selected_week }}</h2>
+	<div class="tablesm">      
+	season:            
+	{% for season in available_seasons %}         
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/team/{{ team.id }}/boxscores/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+	<div class="tablesm">      
+	week:       
+	{% for week in season_weeks %}         
+	  {% ifequal week selected_week %}         
+	  <font size="+1">{{ week }}</font>
+	  {% else %}
+	  <a href="/team/{{ team.id }}/boxscores/season/{{ selected_season }}/week/{{ week }}">{{ week }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}{% endif %}
+	{% endfor %}
+    </div>          
+    
+    &nbsp;
+
+    <table cellpadding="3" cellspacing="1" border="0" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="40%">
+		Player
+		</td>
+		<td width="55%">
+		Stats
+		</td>
+		<td width="5%">
+		Total
+		</td>
+		</tr>     
+	</table>
+	{% for starter_info in starter_infos %}         
+    <table cellpadding="3" cellspacing="1" border="0" width="100%" class="tablehead">
+		<tr class="subcolhead">
+		<td width="40%">
+		{{ starter_info.position }}
+		</td>
+		{% for stat in starter_info.stats %}      
+		<td width="{{ starter_info.stats_len }}%">
+		{{ stat }}
+		</td>
+		{% endfor %}   
+		<td width="5%">
+		<!-- Total -->
+		</td>
+		</tr>     
+		
+{% for starter in starter_info.starters %}		
+<tr valign=top>
+
+<td>
+{% if starter.player %}    
+<a href=/ncf/player/{{ starter.player.id }}>{{ starter.player_name }}</a>
+  {% if starter.game %}  
+    (<a href=/ncf/game/{{ starter.game.id }}/stats/edit>{{ starter.player.team.name }} {% if starter.game.away %}@{% else %}vs.{% endif %} {{ starter.game.opponent.name }}</a>)
+  {% else %}
+    (<a href=/ncf/team/{{ starter.player.team.id }}>{{ starter.player.team.name }}</a> - OFF)
+  {% endif %}
+{% else %}
+(vacant)
+{% endif %}
+</td>
+
+		{% for stat in starter_info.stats %}      
+		<td width="5%">
+		0
+		</td>
+		{% endfor %}   
+
+</tr>
+{% endfor %}
+		
+		
+    </table>
+	{% endfor %}
+
+{% endblock %}

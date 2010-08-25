@@ -1,0 +1,62 @@
+{% extends "league/base.html" %}      
+
+{% block title %}Editing Stats for {{ game.opponent.name }} @ {{ game.team.name }} on {{ game.date }}{% endblock %}
+
+{% block content %}      
+
+<form action="." method="post">
+                 
+<h2>Editing Stats for {{ game.opponent.name }} @ {{ game.team.name }} on {{ game.date }}</h2>
+
+<h2>{{ game.opponent.long_name }} Stats</h2>            
+    {% for position_boxscore in boxscore.away.values %}
+    <table cellpadding="3" cellspacing="1" border="1" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="20%">
+		{{ position_boxscore.position }}
+		</td> 
+		{% for stat in position_boxscore.stats %}
+		<td width="5%">
+		{{ stat }}
+		</td> 
+		{% endfor %}    
+		</tr>  
+	</table>   
+	{% endfor %}
+
+<h2>{{ game.team.long_name }} Stats</h2>
+    {% for position_boxscore in boxscore.home.values %}
+    <table cellpadding="3" cellspacing="1" border="0" width="100%" class="tablehead">
+		<tr class="colhead">
+		<td width="20%">
+		{{ position_boxscore.position }}
+		</td> 
+		{% for stat in position_boxscore.stats %}
+		<td width="5%">
+		{{ stat }}
+		</td> 
+		{% endfor %}    
+		</tr>  
+		{% for player in position_boxscore.players %}
+		<tr>
+		<td width="20%">
+		{{ player.name }}
+		</td> 
+		{% for stat in position_boxscore.stats %}
+		<td width="5%">                             
+		{{ stat }}
+		</td> 
+		{% endfor %}    
+		</tr>  
+		{% endfor %}    
+	</table>   
+	{% endfor %}
+
+<br/><br />
+
+<input type="submit" value="update" name="update"/>
+
+</form>
+
+{% endblock %}
+                             

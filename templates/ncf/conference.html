@@ -1,0 +1,14 @@
+{% extends "ncf/conference_base.html" %} 
+
+{% block content %}                       
+<h2>{{ conference.name }} Home</h2>
+    
+
+<ul>  
+{% for team in conference.teams.all %}   
+<li><a href="/ncf/team/{{ team.id }}">{{ team.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+                             

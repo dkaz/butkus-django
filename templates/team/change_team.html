@@ -1,0 +1,21 @@
+<div class="block">   
+	<div class="title">
+		Change team
+	</div>    
+	
+	<br/>
+	        
+<form action="/team/{{ team.id }}/change_current_team/" method="get"> 
+    <input type="hidden" name="next" value="{{ request.path }}"/>       
+    <select name="new_team_id" onchange="submit()">
+    {% for new_team in teams %}
+      <option value="{{ new_team.id }}" {% ifequal new_team team %}selected{% endifequal %}>
+        {{ new_team.owner.first_name }}
+      </option>
+    {% endfor %}
+    </select> 
+    <br /><br />
+    <img src="/static/logos/teams/{{ team_season.patron_team.id }}.gif"/><br />
+</form>      
+
+</div> 

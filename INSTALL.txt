@@ -1,0 +1,9 @@
+DJANGO:
+
+* add C:\dev\python\django to PYTHONPATH
+	* go to "python" from command line and try "import django" to see if it worked
+
+
+MySQLdb:
+
+* 

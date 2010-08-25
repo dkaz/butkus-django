@@ -1,0 +1,40 @@
+{% extends "ncf/base.html" %} 
+
+{% block title %}{{ team.name }} Schedule - {{ selected_season }}, Week {{ selected_week }}{% endblock %}
+
+{% block content %}                       
+<h2>{{ team.name }} {{ selected_season }} Schedule/Results</h2>
+	<div class="tablesm">      
+	{% for season in available_seasons %}                    
+	  {% ifequal season selected_season %}         
+	  <font size="+1">{{ season }}</font>
+	  {% else %}
+	  <a href="/ncf/team/{{ team.id }}/schedule/season/{{ season }}">{{ season }}</a>
+	  {% endifequal %}
+	  {% if not forloop.last %}|{% endif %}
+	{% endfor %}
+    </div>
+              
+    <br />
+    
+    <table cellpadding="3" cellspacing="1" class="tablehead">
+		<tr valign=top class="colhead" bgcolor=#111111><td width=125>
+        Date
+        </td>
+        <td>
+        Opponent
+        </td>
+	    <td width="125">
+        Result/Time
+        </td>
+    </tr>
+
+	{% for schedule in schedules %}                   
+	<tr class="{% cycle evenrow,oddrow %}" valign=top><td>{{ schedule.date|date:"F j" }}</td><td width=200>{% if schedule.away %}at {% endif %}<a href="/ncf/team/{{ schedule.opponent.id }}">{{ schedule.opponent.name }}</a>&nbsp;</td><td width=125></td></tr>
+	{% endfor %}
+	</table>
+
+
+{% endblock %}
+                             
+               

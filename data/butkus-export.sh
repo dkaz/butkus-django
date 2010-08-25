@@ -1,0 +1,1 @@
+mysqldump -u root -p butkus > butkus-dump.sql

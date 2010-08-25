@@ -1,0 +1,23 @@
+{% extends "team/base.html" %}      
+
+{% block content %}                       
+<h2>Please Confirm Roster Cut for {{ team.name }} ({{ selected_season }}, Week {{ selected_week }})</h2>
+            
+
+<form method="post" action=".">   
+
+{% if form.has_errors %}
+<p class="errornote">Please correct the error{{ form.error_dict|pluralize }} below.</p>
+{% endif %}       
+             
+<ul>
+<li>DROP: {{ roster_drop.player.name }} ({{ roster_drop.player.position }}, {{ roster_drop.player.team.long_name }})<br />  
+</ul>
+
+<input type="submit" value="Confirm"/>        
+</form>
+
+{% endblock %}            
+
+{% block sidebar %}
+{% endblock %}   

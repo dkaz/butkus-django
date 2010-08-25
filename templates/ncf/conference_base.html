@@ -1,0 +1,13 @@
+{% extends "ncf/base.html" %} 
+
+{% block sidebar %}     
+<br />
+<br />
+<img src="/static/logos/conferences/{{ conference.id }}.gif"/>   
+<h2>{{ conference.name }} Menu:</h2>     
+<ul>
+<li><a href="/ncf/conference/{{ conference.id }}">Home</a></li>
+<li><a href="/ncf/conference/{{ conference.id }}/scores/">Scores</a></li>
+</ul>                         
+{% endblock %}            
+                         

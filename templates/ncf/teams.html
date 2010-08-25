@@ -1,0 +1,67 @@
+{% extends "ncf/base.html" %} 
+
+{% block content %}                       
+<h2>Team Index</h2>       
+
+		<table width="100%" cellspacing="4" cellpadding="0">
+			<tr valign="top">
+				<td width="50%">
+				<table cellpadding="3" cellspacing="1">
+				<tr class="colhead"><td>Division I-A Teams</td></tr>
+				
+{% for conference in div1a_conferences %} 
+
+				<tr class="subcolhead">                  
+				<td>
+				<a class="bi" href="/ncf/conference/{{ conference.id }} ">{{ conference.name }} </a> &gt;&gt; 
+				<a href="/ncf/conference/{{ conference.id }}/scores">Schedule</a> | 
+				<a href="/ncf/conference/{{ conference.id }}/stats">Stats</a> | 
+				<a href="/ncf/conference/{{ conference.id }}/standings">Standings</a>
+				</td>
+				</tr>				
+				
+  {% for team in conference.teams.all %} 
+                <tr class="{% cycle oddrow,evenrow %}">
+                <td>
+                <a class="bi" href="/ncf/team/{{ team.id }}">{{ team.name }}</a> &gt;&gt;  
+                <!-- <a href="/ncf/team/{{ team.id }}/stats" class="ni">Stats</a> | -->
+                <a href="/ncf/team/{{ team.id }}/schedule" class="ni">Schedule</a> | 
+                <a href="/ncf/team/{{ team.id }}/roster" class="ni">Roster</a>
+                </td></tr>
+  {% endfor %} 
+{% endfor %}
+
+				</table></td>
+
+				<td width="50%">
+				<table cellpadding="3" cellspacing="1">
+				<tr class="colhead"><td>Division I-AA Teams</td></tr>
+				
+{% for conference in div1aa_conferences %} 
+
+				<tr class="subcolhead">                  
+				<td>
+				<a class="bi" href="/ncf/conference/{{ conference.id }} ">{{ conference.name }} </a> &gt;&gt; 
+				<a href="/ncf/conference/{{ conference.id }}/scores">Schedule</a> | 
+				<a href="/ncf/conference/{{ conference.id }}/stats">Stats</a> | 
+				<a href="/ncf/conference/{{ conference.id }}/standings">Standings</a>
+				</td>
+				</tr>				
+				
+  {% for team in conference.teams.all %} 
+                <tr class="{% cycle oddrow,evenrow %}">
+                <td>
+                <a class="bi" href="/ncf/team/{{ team.id }}">{{ team.name }}</a> &gt;&gt;  
+                <!-- <a href="/ncf/team/{{ team.id }}/stats" class="ni">Stats</a> | -->
+                <a href="/ncf/team/{{ team.id }}/schedule" class="ni">Schedule</a> | 
+                <a href="/ncf/team/{{ team.id }}/roster" class="ni">Roster</a>
+                </td></tr>
+  {% endfor %} 
+{% endfor %}
+				</table></td>
+			</tr>
+		</table>
+
+
+{% endblock %}
+                             

@@ -1,0 +1,391 @@
+{% extends "ncf/base.html" %} 
+
+{% block content %}                       
+<h2>#26 Tony Gonzalez | WR</h2>       
+
+
+<table width=100% cellspacing=0 cellpadding=0><tr>
+
+<td align=right>Roster: 
+<select id="url" name="url" class="tablesm" onchange="gotosite(this.options[this.selectedIndex].value)">
+<option selected="selected">Select Player</option>
+<option value="?playerId=185062">A. Ajudua</option>
+<option value="?playerId=160227">K. Akins</option>
+
+<option value="?playerId=187939">A. Albright</option>
+<option value="?playerId=135763">L. Anam</option>
+<option value="?playerId=174908">G. Anderson</option>
+<option value="?playerId=169290">P. Anderson</option>
+<option value="?playerId=146238">T. Anevski</option>
+<option value="?playerId=185063">S. Aponavicius</option>
+<option value="?playerId=187940">R. Applegate</option>
+<option value="?playerId=160228">J. Ayers</option>
+<option value="?playerId=187941">D. Bagan</option>
+
+<option value="?playerId=135764">J. Beekman</option>
+<option value="?playerId=146239">J. Bell</option>
+<option value="?playerId=169291">M. Bowman</option>
+<option value="?playerId=160229">R. Brace</option>
+<option value="?playerId=160230">A. Brooks</option>
+<option value="?playerId=146241">A. Callender</option>
+<option value="?playerId=154776">K. Challenger</option>
+<option value="?playerId=146242">G. Cherilus</option>
+<option value="?playerId=187942">J. Chisholm</option>
+
+<option value="?playerId=187943">T. Claiborne</option>
+<option value="?playerId=160231">C. Crane</option>
+<option value="?playerId=187944">D. Currid</option>
+<option value="?playerId=154141">D. D'Ambrosio</option>
+<option value="?playerId=187945">W. Davis</option>
+<option value="?playerId=185075">B. Dempsey</option>
+<option value="?playerId=169292">B. Deska</option>
+<option value="?playerId=185117">W. Dosh</option>
+<option value="?playerId=146243">J. Dunbar</option>
+
+<option value="?playerId=187946">B. Flutie</option>
+<option value="?playerId=187947">C. Fox</option>
+<option value="?playerId=185076">M. Fox</option>
+<option value="?playerId=187948">M. Fox</option>
+<option value="?playerId=160233">R. Francois</option>
+<option value="?playerId=187949">J. Geiser</option>
+<option value="?playerId=169293">A. Giles</option>
+<option value="?playerId=146244">R. Glasper</option>
+<option value="?playerId=135937">T. Gonzalez</option>
+
+<option value="?playerId=187952">R. Goodwin</option>
+<option value="?playerId=169294">R. Gunnell</option>
+<option value="?playerId=146245">T. Hall</option>
+<option value="?playerId=187956">M. Herzlich</option>
+<option value="?playerId=160236">C. Huggins</option>
+<option value="?playerId=187960">J. Jarvis</option>
+<option value="?playerId=174910">M. Kozicz</option>
+<option value="?playerId=146246">T. Koziol</option>
+<option value="?playerId=146247">R. Lankford</option>
+
+<option value="?playerId=187963">R. Lapham</option>
+<option value="?playerId=146248">N. Larkin</option>
+<option value="?playerId=185114">B. Lee</option>
+<option value="?playerId=157191">D. Lennon</option>
+<option value="?playerId=187964">R. Lindsey</option>
+<option value="?playerId=146897">J. Loyte</option>
+<option value="?playerId=174912">M. Maglio</option>
+<option value="?playerId=157192">M. Makinde</option>
+<option value="?playerId=185115">M. Marshall</option>
+
+<option value="?playerId=135943">J. Marten</option>
+<option value="?playerId=187966">J. McCluskey</option>
+<option value="?playerId=169296">M. McLaughlin</option>
+<option value="?playerId=187970">J. McMichael</option>
+<option value="?playerId=169297">C. Megwa</option>
+<option value="?playerId=187973">J. Mezzanotte</option>
+<option value="?playerId=146249">T. Morris</option>
+<option value="?playerId=187977">M. Morrisey</option>
+<option value="?playerId=146250">B. Mueller</option>
+
+<option value="?playerId=160247">B. Murphy</option>
+<option value="?playerId=187978">J. Neubert</option>
+<option value="?playerId=160250">R. Ohliger</option>
+<option value="?playerId=134660">M. Palmer</option>
+<option value="?playerId=146252">R. Poles</option>
+<option value="?playerId=146253">T. Pruitt</option>
+<option value="?playerId=160252">R. Purvis</option>
+<option value="?playerId=174913">J. Quinones</option>
+<option value="?playerId=160254">B. Raji</option>
+
+<option value="?playerId=169298">J. Ramella</option>
+<option value="?playerId=160255">C. Ramsey</option>
+<option value="?playerId=160257">B. Robinson</option>
+<option value="?playerId=187979">R. Rollins</option>
+<option value="?playerId=135950">J. Ross</option>
+<option value="?playerId=169299">N. Rossi</option>
+<option value="?playerId=146254">M. Ryan</option>
+<option value="?playerId=157196">S. Sanni</option>
+<option value="?playerId=187980">D. Scafe</option>
+
+<option value="?playerId=174914">G. Seeger</option>
+<option value="?playerId=135954">T. Sele</option>
+<option value="?playerId=169300">P. Sheil</option>
+<option value="?playerId=146255">K. Sheridan</option>
+<option value="?playerId=146256">J. Silva</option>
+<option value="?playerId=185116">J. Siravo</option>
+<option value="?playerId=169301">A. Smith</option>
+<option value="?playerId=187981">J. Smith</option>
+<option value="?playerId=169303">R. Smith</option>
+
+<option value="?playerId=157198">P. Sullivan</option>
+<option value="?playerId=174915">R. Swanke</option>
+<option value="?playerId=169304">M. Tennant</option>
+<option value="?playerId=146257">R. Thompson</option>
+<option value="?playerId=160260">B. Toal</option>
+<option value="?playerId=160262">J. Tougas</option>
+<option value="?playerId=146258">D. Tribble</option>
+<option value="?playerId=135391">A. Valverde</option>
+<option value="?playerId=160265">T. Walls</option>
+
+<option value="?playerId=146259">L. Whitworth</option>
+<option value="?playerId=160268">J. Willette</option>
+<option value="?playerId=160269">K. Willis</option>
+<option value="?playerId=187982">W. Wilson</option>
+<option value="?playerId=160270">B. Young</option>
+</select>                                                       
+
+
+
+<table style="width: 100%;"><tr valign="top" class="tablesm"><td width=50%><div><span class="bi">Full Name: </span>Tony Gonzalez</div><div><span class="bi">Born: </span>March 10, 1983<div><span class="bi">Birth Place</span>: Framingham, MA</div></div><div><span class="bi">Height</span>: 5-11</div><div><span class="bi">Weight</span>: 190 lbs.</div></td><td><div><span class="bi">Age</span>: 23</div><div><span class="bi">Pos</span>: WR</div><div><span class="bi">Class</span>: Senior </div></td></tr></table><div class="tablemed" style="padding: 3px 0 3px 0;">
+
+REC&nbsp;<b>28</b> | YDS&nbsp;<b>414</b> | TD <b>5</b></div></div>
+<div class="tabber"><div style="position: relative; height: 19px;"><div align=center><table style="position: relative; z-index: 11; text-align:center;" cellspacing="2" cellpadding="0"><tr><td class="tabOn">Profile</td>
+<td class="tabOff"><a href="stats?playerId=135937">Stats</a></td><td class="tabOff"><a href="gamelog?playerId=135937">Game Log</a></td></tr></table></div><div class="blankRule"></div></div></div>
+
+<div class="tablesm" style="margin: 0 10px 0 10px";>
+<table border="0" cellpadding="3" cellspacing="1" class="tablehead">
+
+<tr bgcolor="#111111" class="stathead" align=center>
+<td align=left>Stat Overview</td>
+<td colspan="5">Receiving</td><td colspan="5">Rushing</td><td colspan="2">Fumbles</td></tr>
+<tr class="colhead"" align="right">
+<td align="left">YEAR</td><td>REC</td>
+<td>YDS</td>
+<td>AVG</td>
+<td>LNG</td>
+
+<td>TD</td>
+<td>ATT</td>
+<td>YDS</td>
+<td>AVG</td>
+<td>LNG</td>
+<td>TD</td>
+<td>FUM</td>
+<td>LST</td>
+</tr>
+
+<tr class="oddrow" align=right>
+<td align="left">2003</td>
+<td>7</td>
+<td>135</td>
+<td>19.3</td>
+<td>39</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr><tr class="evenrow" align=right>
+<td align="left">2004</td>
+<td>11</td>
+<td>147</td>
+
+<td>13.4</td>
+<td>30</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+
+<td>0</td>
+</tr><tr class="oddrow" align=right>
+<td align="left">2005</td>
+<td>28</td>
+<td>414</td>
+<td>14.8</td>
+<td>38</td>
+<td>5</td>
+<td>0</td>
+
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr></table>
+
+<table cellpadding=3 cellspacing = 1 class="tablehead"><tr bgcolor="#111111" class="stathead" align=center><td colspan=3 align=left>2005 Game Log</td><td colspan="5">Receiving</td><td colspan="5">Rushing</td><td colspan="2">Fumbles</td></tr></tr>
+
+<tr class="colhead" align="right"><td align="left">DATE</td><td align="left">OPP</td><td align="left">RESULT&nbsp;&nbsp;</td><td>REC</td>
+<td>YDS</td>
+<td>AVG</td>
+<td>LNG</td>
+<td>TD</td>
+<td>ATT</td>
+<td>YDS</td>
+
+<td>AVG</td>
+<td>LNG</td>
+<td>TD</td>
+<td>FUM</td>
+<td>LST</td>
+</tr><tr class="oddrow" align=right><td align="left">9/3</td><td align="left">@<a href="/ncf/clubhouse?teamId=252">Brigham Young</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252460252">20-3</a>
+
+</td><td>1</td>
+<td>6</td>
+<td>6.0</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="evenrow" align=right><td align="left">9/10</td><td align="left"><a href="/ncf/clubhouse?teamId=349">Army</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252530103">44-7</a>
+</td><td>3</td>
+<td>75</td>
+
+<td>25.0</td>
+<td>34</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+
+<td>0</td>
+</tr>
+<tr class="oddrow" align=right><td align="left">9/17</td><td align="left"><a href="/ncf/clubhouse?teamId=52">Florida State</a></td><td align="left"><span class="redfont">L</span> <a href="/ncf/boxscore?gameId=252600103">28-17</a>
+</td><td>1</td>
+<td>8</td>
+<td>8.0</td>
+<td>8</td>
+
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr class="evenrow" align=right><td align="left">9/24</td><td align="left">@<a href="/ncf/clubhouse?teamId=228">Clemson</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252670228">16-13</a>
+</td><td>1</td>
+<td>9</td>
+<td>9.0</td>
+<td>9</td>
+<td>0</td>
+
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="oddrow" align=right><td align="left">10/1</td><td align="left"><a href="/ncf/clubhouse?teamId=2050">Ball State</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252740103">38-0</a>
+
+</td><td>3</td>
+<td>31</td>
+<td>10.3</td>
+<td>14</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="evenrow" align=right><td align="left">10/8</td><td align="left"><a href="/ncf/clubhouse?teamId=258">Virginia</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252810103">28-17</a>
+</td><td>3</td>
+<td>47</td>
+
+<td>15.7</td>
+<td>19</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+
+<td>0</td>
+</tr>
+<tr class="oddrow" align=right><td align="left">10/15</td><td align="left"><a href="/ncf/clubhouse?teamId=154">Wake Forest</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=252880103">35-30</a>
+</td><td>6</td>
+<td>104</td>
+<td>17.3</td>
+<td>38</td>
+
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr class="evenrow" align=right><td align="left">10/27</td><td align="left">@<a href="/ncf/clubhouse?teamId=259">Virginia Tech</a></td><td align="left"><span class="redfont">L</span> <a href="/ncf/boxscore?gameId=253000259">30-10</a>
+</td><td colspan=13 align=center>Did Not Play or No Stats Accumulated</td></tr>
+<tr class="oddrow" align=right><td align="left">11/5</td><td align="left">@<a href="/ncf/clubhouse?teamId=153">North Carolina</a></td><td align="left"><span class="redfont">L</span> <a href="/ncf/boxscore?gameId=253090153">16-14</a>
+</td><td>2</td>
+
+<td>49</td>
+<td>24.5</td>
+<td>38</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="evenrow" align=right><td align="left">11/12</td><td align="left"><a href="/ncf/clubhouse?teamId=152">North Carolina State</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=253160103">30-10</a>
+</td><td colspan=13 align=center>Did Not Play or No Stats Accumulated</td></tr>
+<tr class="oddrow" align=right><td align="left">11/19</td><td align="left">@<a href="/ncf/clubhouse?teamId=120">Maryland</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=253230120">31-16</a>
+
+</td><td>4</td>
+<td>40</td>
+<td>10.0</td>
+<td>17</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="evenrow" align=right><td align="left">MPC Computers Bowl</td><td align="left"><a href="/ncf/clubhouse?teamId=68">Boise State</a></td><td align="left"><span class="greenfont">W</span> <a href="/ncf/boxscore?gameId=253620103">27-21</a>
+</td><!--Questions--><td>4</td>
+<td>45</td>
+
+<td>11.3</td>
+<td>24</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+
+<td>0</td>
+</tr>
+</table>
+
+{% endblock %}
+                             

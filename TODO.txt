@@ -1,0 +1,14 @@
+URGENT
+- get new rosters
+- implement "cut player"
+- implement "trade"
+- implement H2H schedule
+- implement H2H standings
+
+NEXT
+- fix login in prod
+
+LATER
+- implement bowl games
+
+
