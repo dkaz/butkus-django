@@ -2,13 +2,13 @@ import random
 
 order=[
     "Derek",
-    "Reid",
-    "Simon",
-    "Brian",
-    "Mike",
-    "Jeff",
     "Brandon",
-    "Jon"
+    "Brian",
+    "Jeff",
+    "Mike",
+    "Simon",
+    "Jon",
+    "Reid"
     ]
 
 def team(position):

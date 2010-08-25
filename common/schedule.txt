@@ -4,91 +4,91 @@ Schedule
 
 Week 1
 
-Derek vs. Reid
-Simon vs. Brian
-Mike vs. Jeff
-Brandon vs. Jon
+Derek vs. Brandon
+Brian vs. Jeff
+Mike vs. Simon
+Jon vs. Reid
 
 Week 2
 
-Derek vs. Jeff
-Reid vs. Mike
-Simon vs. Jon
-Brian vs. Brandon
+Derek vs. Brian
+Brandon vs. Jeff
+Mike vs. Jon
+Simon vs. Reid
 
 Week 3
 
-Derek vs. Jon
-Reid vs. Brandon
-Simon vs. Jeff
-Brian vs. Mike
+Derek vs. Reid
+Brandon vs. Jon
+Brian vs. Simon
+Jeff vs. Mike
 
 Week 4
 
-Derek vs. Simon
-Reid vs. Brian
-Mike vs. Brandon
-Jeff vs. Jon
+Derek vs. Brian
+Brandon vs. Jeff
+Mike vs. Jon
+Simon vs. Reid
 
 Week 5
 
-Derek vs. Brian
-Reid vs. Simon
-Mike vs. Jon
-Jeff vs. Brandon
+Derek vs. Jeff
+Brandon vs. Brian
+Mike vs. Reid
+Simon vs. Jon
 
 Week 6
 
-Derek vs. Jeff
-Reid vs. Mike
-Simon vs. Jon
-Brian vs. Brandon
+Derek vs. Brandon
+Brian vs. Jeff
+Mike vs. Simon
+Jon vs. Reid
 
 Week 7
 
-Derek vs. Brandon
-Reid vs. Jon
-Simon vs. Mike
-Brian vs. Jeff
+Derek vs. Simon
+Brandon vs. Mike
+Brian vs. Reid
+Jeff vs. Jon
 
 Week 8
 
-Derek vs. Reid
-Simon vs. Brian
-Mike vs. Jeff
-Brandon vs. Jon
+Derek vs. Jeff
+Brandon vs. Brian
+Mike vs. Reid
+Simon vs. Jon
 
 Week 9
 
 Derek vs. Mike
-Reid vs. Jeff
-Simon vs. Brandon
+Brandon vs. Simon
 Brian vs. Jon
+Jeff vs. Reid
 
 Week 10
 
-Derek vs. Brandon
-Reid vs. Jon
-Simon vs. Mike
-Brian vs. Jeff
+Derek vs. Jon
+Brandon vs. Reid
+Brian vs. Mike
+Jeff vs. Simon
 
 Week 11
 
-Derek vs. Brian
-Reid vs. Simon
-Mike vs. Jon
-Jeff vs. Brandon
+Derek vs. Mike
+Brandon vs. Simon
+Brian vs. Jon
+Jeff vs. Reid
 
 Week 12
 
-Derek vs. Mike
-Reid vs. Jeff
-Simon vs. Brandon
-Brian vs. Jon
+Derek vs. Simon
+Brandon vs. Mike
+Brian vs. Reid
+Jeff vs. Jon
 
 Week 13
 
-Derek vs. Simon
-Reid vs. Brian
-Mike vs. Brandon
-Jeff vs. Jon
+Derek vs. Jon
+Brandon vs. Reid
+Brian vs. Mike
+Jeff vs. Simon
